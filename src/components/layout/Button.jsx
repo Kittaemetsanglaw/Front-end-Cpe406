@@ -1,4 +1,5 @@
-import React from "react";
+import Reac  from "react";
+
 
 const Button = ({ label, onClick, className }) => {
   return (

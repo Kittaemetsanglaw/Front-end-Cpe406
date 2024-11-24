@@ -1,24 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom"; // นำเข้า Link
+import logo from "../../assets/photo/logo.png";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center p-4 bg-white shadow-md">
+    <div className="flex justify-between items-center px-4 py-2">
       {/* Logo Section */}
-      <div className="flex items-center space-x-2">
+      <Link to="/MainPage" className="flex items-center space-x-2">
+        {/* Image Logo */}
         <img
-          src="/path-to-logo.png"
+          src={logo}
           alt="Logo"
-          className="w-10 h-10 object-cover"
+          className="w-[141px] h-[134px]" // ตั้งขนาดของโลโก้ตามที่กำหนด
         />
-        <span className="text-lg font-bold text-blue-500">
+        {/* Text */}
+        <span className="text-[15px] font-bold text-blue-500">
           Measure Temperature IoT
         </span>
-      </div>
+      </Link>
+
       {/* Logout Button */}
       <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
         Logout
       </button>
-    </header>
+    </div>
   );
 };
 
