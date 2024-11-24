@@ -6,7 +6,7 @@ import doctor1 from "../../assets/photo/doctor1.png"; // รูปหมอค�
 import doctor2 from "../../assets/photo/doctor2.png"; // รูปหมอคนที่สอง
 import iot from "../../assets/photo/iot.png"; //รูปมุมบน
 
-const MainPage = () => {
+const RegisterPage = () => {
   return (
     <div
       className="min-h-screen bg-blue-50 flex justify-center items-center"
@@ -38,11 +38,18 @@ const MainPage = () => {
           {/* ปุ่ม Sign In และ Sign Up */}
           <div className="flex justify-center md:justify-start space-x-4">
          
-          <Link to= "../" >
-            <button className="bg-[#139BC9] text-white px-4 py-2 rounded-[40px] hover:bg-blue-600">
-              ตรวจสุขภาพ
+          <Link to= "./LoginPage" >
+            <button className="bg-[#139BC9] text-white px-4 py-2 rounded-[40px] hover:bg-white">
+                Login
             </button>
             </Link>
+
+         <Link to= "./RegisterPage">
+            <button className="bg-[#139BC9] text-white px-4 py-2 rounded-[40px] hover:bg-white">
+                Register
+            </button>
+
+         </Link>
           </div>
         </div>
 
@@ -75,4 +82,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default RegisterPage;

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"; // นำเข้า Link
 import logo from "../../assets/photo/logo.png";
 
+
 const Header = () => {
   return (
     <div className="flex justify-between items-center px-4 py-2">
@@ -20,9 +21,11 @@ const Header = () => {
       </Link>
 
       {/* Logout Button */}
-      <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+      <Link to="/RegisterPage">
+      <button className="bg-[#139BC9] text-[#FFFFFF] px-4 py-2 rounded-[50px] hover:bg-blue-600">
         Logout
       </button>
+      </Link>
     </div>
   );
 };
