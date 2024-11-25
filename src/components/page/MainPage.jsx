@@ -31,8 +31,8 @@ const MainPage = () => {
 
           {/* ปุ่ม ตรวจสุขภาพ */}
           <div className="flex justify-center md:justify-start space-x-4">
-            <Link to="../">
-              <button className="bg-[#139BC9] text-white px-4 py-2 rounded-[40px] hover:bg-blue-600">
+            <Link to="/TemperaturePage">
+              <button className="bg-[#139BC9] text-white px-4 py-2 rounded-[40px] hover:bg-blue-600 ml-5">
                 ตรวจสุขภาพ
               </button>
             </Link>

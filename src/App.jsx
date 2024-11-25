@@ -1,25 +1,23 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import Header from "./components/layout/Header";
-import TemperatureCard from "./components/layout/TemperatureCard";
-import MainPage from "./components/page/MainPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BG from "./components/layout/BG"; // BG layout
+import MainPage from "./components/page/MainPage"; // หน้า MainPage
 import RegisterPage from "./components/page/RegisterPage";
-import BG from "./components/layout/BG"; // Import BG
 import AuthForm from "./components/page/authForm/AuthForm";
+import TemperaturePage from "./components/page/TemperaturePage"; // Import TemperaturePage
 
 const App = () => {
-  const location = useLocation(); // ใช้ useLocation เพื่อตรวจสอบเส้นทาง
-
   return (
     <BG>
-      {/* แสดง Header เฉพาะหน้า "/" */}
-      {location.pathname === "/" && <Header />}
-
-      {/* กำหนด Routes */}
+      {/* Routes */}
       <Routes>
-        <Route path="/" element={<TemperatureCard temperature={36} />} />
+        {/* เส้นทางหลักคือ MainPage */}
+        <Route path="/" element={<RegisterPage />} />
+        {/* เส้นทาง TemperaturePage */}
+        <Route path="/temperaturePage" element={<TemperaturePage />} />
+        {/* เส้นทาง MainPage */}
         <Route path="/MainPage" element={<MainPage />} />
-        <Route path="/RegisterPage" element={<RegisterPage />} />
+        {/* เส้นทาง AuthForm */}
         <Route path="/AuthForm" element={<AuthForm />} />
       </Routes>
     </BG>
