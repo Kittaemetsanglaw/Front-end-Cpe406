@@ -1,30 +1,35 @@
 import React from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/layout/Header";
 import TemperatureCard from "./components/layout/TemperatureCard";
-import MainPage from "./components/page/MainPage"; //เพิ่มหน้า mainpage
-import './App.css';
-import background from "./assets/photo/background.png";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainPage from "./components/page/MainPage";
+import RegisterPage from "./components/page/RegisterPage";
+import BG from "./components/layout/BG"; // Import BG
+import AuthForm from "./components/page/authForm/AuthForm";
 
 const App = () => {
+  const location = useLocation(); // ใช้ useLocation เพื่อตรวจสอบเส้นทาง
+
   return (
-    <BrowserRouter>
-      <div
-        className="bg-blue-50 min-h-screen flex flex-col"
-        style={{
-          backgroundImage: `url(${background})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <Header />
-        <Routes>
-          <Route path="/" element={<TemperatureCard temperature={36} />} />
-          <Route path="/MainPage" element={<MainPage />} /> {/* ใช้ MainPage */}
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <BG>
+      {/* แสดง Header เฉพาะหน้า "/" */}
+      {location.pathname === "/" && <Header />}
+
+      {/* กำหนด Routes */}
+      <Routes>
+        <Route path="/" element={<TemperatureCard temperature={36} />} />
+        <Route path="/MainPage" element={<MainPage />} />
+        <Route path="/RegisterPage" element={<RegisterPage />} />
+        <Route path="/AuthForm" element={<AuthForm />} />
+      </Routes>
+    </BG>
   );
 };
 
-export default App;
+const AppWrapper = () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+
+export default AppWrapper;
